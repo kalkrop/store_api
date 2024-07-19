@@ -2,8 +2,7 @@ from decimal import Decimal
 from typing import Annotated, Optional
 from bson import Decimal128
 from pydantic import AfterValidator, Field
-
-from store.schemas.base import BaseSchemaMixin, OutMixin
+from store.schemas.base import BaseSchemaMixin, OutSchema
 
 
 class ProductBase(BaseSchemaMixin):
@@ -17,7 +16,7 @@ class ProductIn(ProductBase, BaseSchemaMixin):
     ...
 
 
-class ProductOut(ProductIn, OutMixin):
+class ProductOut(ProductIn, OutSchema):
     ...
 
 
@@ -34,5 +33,5 @@ class ProductUpdate(BaseSchemaMixin):
     status: Optional[bool] = Field(None, description="Product status")
 
 
-class ProductUpdateOut(ProductUpdate, OutMixin):
+class ProductUpdateOut(ProductOut):
     ...

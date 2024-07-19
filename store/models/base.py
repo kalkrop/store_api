@@ -3,10 +3,10 @@ from decimal import Decimal
 from typing import Any
 import uuid
 from bson import Decimal128
-from pydantic import UUID4, Field, model_serializer
+from pydantic import UUID4, BaseModel, Field, model_serializer
 
 
-class CreateBaseModel:
+class CreateBaseModel(BaseModel):
     id: UUID4 = Field(default_factory=uuid.uuid4)
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
