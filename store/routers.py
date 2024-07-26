@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from store.controllers import product
+from store.controllers.product import router as product
 
 
 api_router = APIRouter()
